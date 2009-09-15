@@ -1,0 +1,61 @@
+= Capsule
+
+* http://death.rubyforge.org
+* http://death.rubyforge.org/capsule
+
+
+== DESCRIPTION
+
+Capsule is subclass of Module. It encapsulates an
+extenal script as a functions module.
+
+Capsule is based on Joel VanderWerf's Script class (script.rb).
+
+
+== FEATURES/ISSUES
+
+* Convert external "toplevel" scripts into modules.
+* Provides autoload feature.
+
+
+== RELEASE NOTES
+
+Please see RELEASE file.
+
+
+== SYNOPSIS
+
+To encapsulate a script in a Capsule:
+
+  myscript = Capsule.new('myscript.rb')
+
+If the script is in the Ruby load path, then you can use +Capsule.load+.
+
+  myscript = Capsule.load('myscript.rb')
+
+
+== HOW TO INSTALL
+
+To install with RubyGems simply open a console and type:
+
+  gem install capsule
+
+Local installation requires Setup.rb (gem install setup),
+then download the tarball package and type:
+
+  tar -xvzf capsule-1.0.0.tgz
+  cd capsule-1.0.0
+  sudo setup.rb all
+
+Windows users use 'ruby setup.rb all'.
+
+
+== COPYING
+
+Copyright (c) 2007 Coding Dead
+Copyright (c) 2005 Joel VanderWerf
+
+This program is ditributed unser the terms of the LGPL v3 license.
+
+See LICENSE file for details.
+
