@@ -1,7 +1,6 @@
 = Capsule
 
-* http://death.rubyforge.org
-* http://death.rubyforge.org/capsule
+* http://rubyworks.github.com/capsule
 
 
 == DESCRIPTION
@@ -20,7 +19,7 @@ Capsule is based on Joel VanderWerf's Script class (script.rb).
 
 == RELEASE NOTES
 
-Please see RELEASE file.
+Please see HISTORY file.
 
 
 == SYNOPSIS
