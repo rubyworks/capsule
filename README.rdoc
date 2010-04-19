@@ -1,6 +1,7 @@
 = Capsule
 
-* http://rubyworks.github.com/capsule
+* home: http://rubyworks.github.com/capsule
+* work: http://github.com/rubyworks/capsule
 
 
 == DESCRIPTION
@@ -51,10 +52,10 @@ Windows users use 'ruby setup.rb all'.
 
 == COPYING
 
-Copyright (c) 2007 Coding Dead
+Copyright (c) 2007 Thomas Sawyer
 Copyright (c) 2005 Joel VanderWerf
 
-This program is ditributed unser the terms of the LGPL v3 license.
+This program is ditributed unser the terms of the MIT license.
 
 See LICENSE file for details.
 
