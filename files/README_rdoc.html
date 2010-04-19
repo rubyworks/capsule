@@ -5,7 +5,7 @@
 <head>
   <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
 
-  <title>File: LICENSE [Capsule]</title>
+  <title>File: README.rdoc [Capsule]</title>
 
   <link rel="SHORTCUT ICON" href="../assets/icon/file.png">
 
@@ -40,7 +40,7 @@
     <h1>
       <img src="../assets/icon/file.png" align="absmiddle">&nbsp;
       <a href="../index.html">Capsule</a>&nbsp;
-      <a href="/">LICENSE</a>
+      <a href="/">README.rdoc</a>
     </h1>
   </div>
 
@@ -49,7 +49,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">Mon Apr 19 13:33:46 -0400 2010</dd>
+        <dd class="modified-date">Mon Apr 19 13:38:54 -0400 2010</dd>
 
         
 
@@ -186,33 +186,85 @@
    -->
 
   <div id="documentation">
-    <p>
-The MIT License
+    <h1><a href="../classes/Capsule.html">Capsule</a></h1>
+<ul>
+<li>home: <a
+href="http://rubyworks.github.com/capsule">rubyworks.github.com/capsule</a>
+
+</li>
+<li>work: <a
+href="http://github.com/rubyworks/capsule">github.com/rubyworks/capsule</a>
+
+</li>
+</ul>
+<h2>DESCRIPTION</h2>
+<p>
+<a href="../classes/Capsule.html">Capsule</a> is subclass of <a
+href="../classes/Module.html">Module</a>. It encapsulates an extenal script
+as a functions module.
 </p>
 <p>
-Copyright &#169; 2009 Peter Vanbroekhoven &amp; Thomas Sawyer
+<a href="../classes/Capsule.html">Capsule</a> is based on Joel
+VanderWerf&#8217;s Script class (script.rb).
+</p>
+<h2>FEATURES/ISSUES</h2>
+<ul>
+<li>Convert external &#8220;toplevel&#8221; scripts into modules.
+
+</li>
+<li>Provides autoload feature.
+
+</li>
+</ul>
+<h2>RELEASE NOTES</h2>
+<p>
+Please see <a href="HISTORY.html">HISTORY</a> file.
+</p>
+<h2>SYNOPSIS</h2>
+<p>
+To encapsulate a script in a Capsule:
+</p>
+<pre>
+  myscript = Capsule.new('myscript.rb')
+</pre>
+<p>
+If the script is in the Ruby load path, then you can use <tt><a
+href="../classes/Capsule.html#M000000">Capsule.load</a></tt>.
+</p>
+<pre>
+  myscript = Capsule.load('myscript.rb')
+</pre>
+<h2>HOW TO INSTALL</h2>
+<p>
+To install with RubyGems simply open a console and type:
+</p>
+<pre>
+  gem install capsule
+</pre>
+<p>
+Local installation requires Setup.rb (gem install setup), then download the
+tarball package and type:
+</p>
+<pre>
+  tar -xvzf capsule-1.0.0.tgz
+  cd capsule-1.0.0
+  sudo setup.rb all
+</pre>
+<p>
+Windows users use &#8216;ruby setup.rb all&#8217;.
+</p>
+<h2>COPYING</h2>
+<p>
+Copyright &#169; 2007 Thomas Sawyer
 </p>
 <p>
-Permission is hereby granted, free of charge, to any person obtaining a
-copy of this software and associated documentation files (the
-&#8220;Software&#8221;), to deal in the Software without restriction,
-including without limitation the rights to use, copy, modify, merge,
-publish, distribute, sublicense, and/or sell copies of the Software, and to
-permit persons to whom the Software is furnished to do so, subject to the
-following conditions:
+Copyright &#169; 2005 Joel VanderWerf
 </p>
 <p>
-The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+This program is ditributed unser the terms of the MIT license.
 </p>
 <p>
-THE SOFTWARE IS PROVIDED &#8220;AS IS&#8221;, WITHOUT WARRANTY OF ANY KIND,
-EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
-MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN
-NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
-DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR
-OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE
-USE OR OTHER DEALINGS IN THE SOFTWARE.
+See <a href="LICENSE.html">LICENSE</a> file for details.
 </p>
 
   </div>
