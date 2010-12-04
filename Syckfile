@@ -26,10 +26,11 @@ ridoc:
   active : true
 
 rdoc:
-  service: RDoc
-  include: ~
-  exclude: [ Syckfile ]
-  active : true
+  service : RDoc
+  template: newfish
+  include : ~
+  exclude : [ Syckfile ]
+  active  : true
 
 syntax:
   service  : Syntax
