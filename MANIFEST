@@ -1,0 +1,8 @@
+#!mast -x Syckfile -x Rubyfile .rubyspec bin lib meta test [A-Z]*
+.rubyspec
+lib/capsule.rb
+HISTORY.rdoc
+PROFILE
+LICENSE
+README.rdoc
+VERSION
