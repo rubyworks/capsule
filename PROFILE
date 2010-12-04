@@ -1,0 +1,22 @@
+---
+title   : Capsule
+suite   : rubyworks
+summary : Encapsulate scripts as functional modules
+license : Apache 2.0
+contact : rubyworks-mailinglist@googlegroups.com
+created : 2005-01-01
+
+copyright:
+  Copyright (c) 2005 Joel VanderWerf
+
+authors:
+  - Joel VanderWerf
+  - Thomas Sawyer
+
+description:
+  Capsule is subclass of Module. It encapsulates an
+  extenal script as a functions module.
+
+resources:
+  homepage: http://rubyworks.github.com/capsule
+  repository: git://github.com/rubyworks/capsule.git
