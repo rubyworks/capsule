@@ -53,6 +53,7 @@ Windows users use 'ruby setup.rb all'.
 == COPYING
 
 Copyright (c) 2007 Thomas Sawyer
+
 Copyright (c) 2005 Joel VanderWerf
 
 This program is ditributed unser the terms of the MIT license.
