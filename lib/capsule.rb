@@ -36,7 +36,7 @@ class Capsule < Module
   class << self
     # As with #new but will search Ruby's $LOAD_PATH first.
     #--
-    # Will also try .rb, .so, .dll, et al extensions, like require does.
+    # TODO: Will also try .rb, .so, .dll, et al extensions, like require does.
     #++
     def load(main_file, options=nil, &block)
       file = nil
@@ -165,7 +165,7 @@ class Capsule < Module
 
   #
   def include(*mods)
-    super
+    super(*mods)
     extend self
   end
 
