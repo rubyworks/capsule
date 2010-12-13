@@ -18,5 +18,7 @@ description:
   extenal script as a functions module.
 
 resources:
-  homepage: http://rubyworks.github.com/capsule
-  repository: git://github.com/rubyworks/capsule.git
+  home: http://rubyworks.github.com/capsule
+
+repositories:
+  public: git://github.com/rubyworks/capsule.git

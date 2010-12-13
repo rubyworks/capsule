@@ -1,5 +1,5 @@
-#!mast -x Syckfile -x Rubyfile .rubyspec bin lib meta test [A-Z]*
-.rubyspec
+#!mast -x Syckfile -x Profile .ruby bin lib meta test [A-Z]*
+.ruby
 lib/capsule.rb
 HISTORY.rdoc
 PROFILE
