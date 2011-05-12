@@ -1,8 +1,6 @@
 #require 'rbconfig'
+require 'capsule/autoimport'
 
-# A Capsule is subclass of Module. It encapsulates an extenal script
-# as a funcitons module.
-#
 # A module which is an instance of the Capsule class encapsulates in its scope
 # the top-level methods, top-level constants, and instance variables defined in
 # a ruby script file (and its subfiles) loaded by a ruby program. This allows
@@ -15,7 +13,13 @@ class Capsule < Module
 
   #DLEXT = Config::CONFIG['DLEXT']
 
-  # The script file with which the Import was instantiated.
+  # Ruby script extensions to automatically try when searching for
+  # a script on the load_path.
+
+  SUFFIXES = ['.rb', '.rbs'] #, '.rbw', '.so', '.bundle', '.dll', '.sl', '.jar']
+
+  # The script file with which the import was instantiated.
+
   attr_reader :main_file
 
   # The directory in which main_file is located, and relative to which
@@ -23,29 +27,29 @@ class Capsule < Module
   #attr_reader :dir
 
   # An array of paths to search for scripts. This has the same
-  # semantics as <tt>$:</tt>, alias <tt>$LOAD_PATH</tt>, excpet
+  # semantics as <tt>$:</tt>, alias <tt>$LOAD_PATH</tt>, except
   # that it is local to this script. The path of the current
-  # script is added automatically (equivalent to '.')
+  # script is added automatically.
+
   attr_reader :load_path
 
   # A hash that maps <tt>filename=>true</tt> for each file that has been
   # required locally by the script. This has the same semantics as <tt>$"</tt>,
   # alias <tt>$LOADED_FEATURES</tt>, except that it is local to this script.
+
   attr_reader :loaded_features
 
-  class << self
-    # As with #new but will search Ruby's $LOAD_PATH first.
-    #--
-    # TODO: Will also try .rb, .so, .dll, et al extensions, like require does.
-    #++
-    def load(main_file, options=nil, &block)
-      file = nil
-      $LOAD_PATH.each do |path|
-        break if file = File.file?(File.join(path, main_file))
-        #break if file = Dir.glob(File.join(path, main_file)+'{,.rb,.'+DLEXT+'}')[0]
-      end
-      new(file || main_file, options=nil, &block)
+  # As with #new but will search Ruby's $LOAD_PATH first.
+  # This will also try `.rb` extensions, like require does.
+
+  def self.load(main_file, options=nil, &block)
+    file = nil
+    $LOAD_PATH.each do |path|
+      file = File.join(path, main_file)
+      break if file = File.file?(file)
+      break if file = Dir.glob(file + '{' + SUFFIXES.join(',') + '}').first
     end
+    new(file || main_file, options=nil, &block)
   end
 
   # Creates new Capsule, and loads _main_file_ in the scope of the script. If a
@@ -53,25 +57,24 @@ class Capsule < Module
   # constants can be defined as inputs to the script.
 
   def initialize(main_file, options=nil, &block)
-    extend self
-
     options ||= {}
 
     @main_file       = File.expand_path(main_file)
+
     @load_path       = options[:load_path] || []
-    #@load_path |= [File.dirname(@main_file)]  # before or after?
     @loaded_features = options[:loaded_features] || {}
 
-    # TODO In order to load/require at the instance level.
-    # This needs to be in a separate namespace however
-    # b/c it can interfere with what is expected.
-    #[ :require, :load ].each{ |meth|
-    #  m = method(meth)
-    #  define_method(meth) do |*args| m.call(*args) end
-    #}
+    @extend          = true  # default
+    @extend          = options[:extend] if options.key?(:extend)
+
+    ## add script's path to load_path
+    ## TODO: should we be doing this?
+    @load_path |= [File.dirname(@main_file)]
+
+    ## if @extend (the default) module extends itself
+    extend self if @extend
 
     module_eval(&block) if block
-    extend self
 
     load_in_module(main_file)
   end
@@ -79,7 +82,7 @@ class Capsule < Module
   # Lookup feature in load path.
 
   def load_path_lookup(feature)
-    paths = File.join('{' + @load_path.join(',') + '}', feature + '{,.rb,.rbs}')
+    paths = File.join('{' + @load_path.join(',') + '}', feature + '{' + SUFFIXES + '}')
     files = Dir.glob(paths)
     match = files.find{ |f| ! @loaded_features.include?(f) }
     return match
@@ -98,13 +101,11 @@ class Capsule < Module
   #
   # Typically called from within the main file to load additional sub files, or
   # from those sub files.
-  #
-  #--
-  # TODO Need to add load_path lookup.
-  #++
 
   def load(file, wrap = false)
-    load_in_module(File.join(@dir, file))
+    file = load_path_lookup(feature)
+    return super unless file
+    load_in_module(file) #File.join(@dir, file))
     true
   rescue MissingFile
     super
@@ -120,8 +121,7 @@ class Capsule < Module
   # extension or is not found locally.
   #
   #--
-  # This was using load_in_module rather than include_script. Maybe is still should
-  # and one should have to call include_script instead? Think about this.
+  # TODO: Should this be using #include_script instead?
   #++
 
   def require(feature)
@@ -136,10 +136,35 @@ class Capsule < Module
     end
   end
 
-  # Raised by #load_in_module, caught by #load and #require.
-  class MissingFile < LoadError; end
+  # Checks the class of each +mods+. If a String, then calls #include_script,
+  # otherwise behaves like normal #include.
 
-  # Loads _file_ in this module's context.Thomas Sawyer Note that <tt>\_\_FILE\_\_</tt> and
+  def include(*mods)
+    mods.reverse_each do |mod|
+      case mod
+      when String
+        include_script(mod)
+      else
+        super(mod)
+        extend self if @extend
+      end
+    end
+  end
+
+  # Create a new Capsule for a script and include it into the current capsule.
+
+  def include_script(file)
+    include self.class.new(file, :load_path=>load_path, :loaded_features=>loaded_features, :extend=>false)
+  rescue Errno::ENOENT => e
+    if /#{file}$/ =~ e.message
+      raise MissingFile, e.message
+    else
+      raise
+    end
+    extend self if @extend
+  end
+
+  # Loads _file_ in this module's context. Note that <tt>\_\_FILE\_\_</tt> and
   # <tt>\_\_LINE\_\_</tt> work correctly in _file_.
   # Called by #load and #require; not normally called directly.
 
@@ -153,69 +178,15 @@ class Capsule < Module
     end
   end
 
-  def include_script(file)
-    include self.class.new(file, :load_path=>load_path, :loaded_features=>loaded_features)
-  rescue Errno::ENOENT => e
-    if /#{file}$/ =~ e.message
-      raise MissingFile, e.message
-    else
-      raise
-    end
-  end
+  # Give inspection of Capsule with script file name.
 
-  #
-  def include(*mods)
-    super(*mods)
-    extend self
-  end
-
-  def to_s # :nodoc:
+  def inspect # :nodoc:
     "#<#{self.class}:#{main_file}>"
   end
 
-end
+  # Raised by #load_in_module, caught by #load and #require.
 
-# TODO Is autoimport bets name for this?
-
-class Module
-
-  const_missing_definition_for_autoimport = lambda do
-    #$autoimport_activated = true
-    alias const_missing_before_autoimport const_missing
-
-    def const_missing(sym) # :nodoc:
-      filename = @autoimport && @autoimport[sym]
-      if filename
-        mod = Import.load(filename)
-        const_set sym, mod
-      else
-        const_missing_before_autoimport(sym)
-      end
-    end
-  end
-
-  # When the constant named by symbol +mod+ is referenced, loads the script
-  # in filename using Capsule.load and defines the constant to be equal to the
-  # resulting Capsule module.
-  #
-  # Use like Module#autoload--however, the underlying opertation is #load rather
-  # than #require, because scripts, unlike libraries, can be loaded more than
-  # once. See examples/autoscript-example.rb
-
-  define_method(:autoimport) do |mod, file|
-    if @autoimport.empty? #unless $autoimport_activated
-      const_missing_definition_for_autoimport.call
-    end
-    (@autoimport ||= {})[mod] = file
-  end
-end
-
-
-module Kernel
-
-  # Calls Object.autoimport
-  def autoimport(mod, file)
-    Object.autoimport(mod, file)
-  end
+  class MissingFile < ::LoadError; end
 
 end
+
