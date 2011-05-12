@@ -49,7 +49,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">Tue Sep 15 16:56:00 -0400 2009</dd>
+        <dd class="modified-date">Thu May 12 13:44:58 -0400 2011</dd>
 
         
 
@@ -66,11 +66,11 @@
         
           <li class="file"><a href="./COPYING_rdoc.html">COPYING.rdoc</a></li>
         
-          <li class="file"><a href="./PROFILE.html">PROFILE</a></li>
+          <li class="file"><a href="./Version.html">Version</a></li>
+        
+          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
-        
-          <li class="file"><a href="./VERSION.html">VERSION</a></li>
         
           <li class="file"><a href="./README_rdoc.html">README.rdoc</a></li>
         
@@ -201,7 +201,22 @@
     
 <h1>RELEASE HISTORY</h1>
 
-<h2>1.0.0 // 2009-07-01</h2>
+<h2>1.1.0 / 2011-05-12</h2>
+
+<p>This release makes two small enhancements to the <a
+href="Capsule.html">Capsule</a> class. It will automatically try `.rb`
+extension of script names that lack an extension and it now provides an
+`:extend` option which can be set to `false` to deactive a capsules sef
+extension (`extend self`).</p>
+
+<p>Changes:</p>
+<ul><li>
+<p>Search for scripts with  common ruby extensions.</p>
+</li><li>
+<p>Add :extend option to control self extension.</p>
+</li></ul>
+
+<h2>1.0.0 / 2009-07-01</h2>
 
 <p>This is the initial stand-alone release of <a
 href="Capsule.html">Capsule</a>, spun-off from Ruby Facets.</p>

@@ -1,201 +1,164 @@
+
 <h1>Capsule</h1>
+
 <h2>Description</h2>
-<p>
-Capsule is a subclass of Module. A module which is an instance of the
+
+<p>Capsule is a subclass of Module. A module which is an instance of the
 Capsule class encapsulates in its scope the top-level methods, top-level
 constants, and instance variables defined in a Ruby script (and its
 dependent files) loaded by a Ruby program. This allows use of script files
 to define objects that can be loaded into a program in much the same way
 that objects can be loaded from YAML or Marshaled files. There is also an
-autoimport method which functions like Ruby&#8217;s autoload but based on
-is Capsule.load.
-</p>
+autoimport method which functions like Ruby’s autoload but based on is
+Capsule.load.</p>
+
 <h2>Resources</h2>
-<ul>
-<li><p>
-home: <a
-href="http://rubyworks.github.com/capsule">rubyworks.github.com/capsule</a>
-</p>
-</li>
-<li><p>
-work: <a
-href="http://github.com/rubyworks/capsule">github.com/rubyworks/capsule</a>
-</p>
-</li>
-<li><p>
-mail: <a
-href="http://groups.google.com/group/rubyworks-mailinglist">groups.google.com/group/rubyworks-mailinglist</a>
-</p>
-</li>
-</ul>
+<ul><li>
+<p>home: <a
+href="http://rubyworks.github.com/capsule">rubyworks.github.com/capsule</a></p>
+</li><li>
+<p>work: <a
+href="http://github.com/rubyworks/capsule">github.com/rubyworks/capsule</a></p>
+</li><li>
+<p>mail: <a
+href="http://groups.google.com/group/rubyworks-mailinglist">groups.google.com/group/rubyworks-mailinglist</a></p>
+</li></ul>
+
 <h2>Synopsis</h2>
-<p>
-To encapsulate a script in a Capsule:
-</p>
-<pre>
-  myscript = Capsule.new('myscript.rb')
-</pre>
-<p>
-If the script is in Ruby&#8217;s $LOAD_PATH, then you can use
-<tt>Capsule.load</tt>.
-</p>
-<pre>
-  myscript = Capsule.load('myscript.rb')
-</pre>
-<p>
-Here is an example:
-</p>
-<pre>
-  # myscript.rb
 
-  VALUE = [1,2,3]
+<p>To encapsulate a script in a Capsule:</p>
 
-  def run
-    puts &quot;#{self} is running.&quot;
-  end
-</pre>
-<p>
-And the encapsulating program:
-</p>
-<pre>
-  # program.rb:
+<pre>myscript = Capsule.new('myscript.rb')</pre>
 
-  require 'capsule'
+<p>If the script is in Ruby’s $LOAD_PATH, then you can use
+<tt>Capsule.load</tt>.</p>
 
-  myscript = Capsule.load(&quot;myscript.rb&quot;)
+<pre>myscript = Capsule.load('myscript.rb')</pre>
 
-  p myscript::VALUE
+<p>Here is an example:</p>
 
-  myscript.run
-</pre>
-<p>
-Running `program.rb` will result in:
-</p>
-<pre>
-  $ ruby program.rb
-  [1, 2, 3]
-  #&lt;Capsule:myscript.rb&gt; is running.
-</pre>
+<pre># myscript.rb
+
+VALUE = [1,2,3]
+
+def run
+  puts &quot;#{self} is running.&quot;
+end</pre>
+
+<p>And the encapsulating program:</p>
+
+<pre># program.rb:
+
+require 'capsule'
+
+myscript = Capsule.load(&quot;myscript.rb&quot;)
+
+p myscript::VALUE
+
+myscript.run</pre>
+
+<p>Running `program.rb` will result in:</p>
+
+<pre>$ ruby program.rb
+[1, 2, 3]
+#&lt;Capsule:myscript.rb&gt; is running.</pre>
+
 <h2>Usage</h2>
-<p>
-Capsule modules are instantiated with <tt>Capsule.new(main_file)</tt> or
+
+<p>Capsule modules are instantiated with <tt>Capsule.new(main_file)</tt> or
 the alias <tt>Capsule.load(main_file)</tt>. All the top-level constants and
 top-level methods that are defined in the <tt>main_file</tt> and its
 dependent local files (see below) are scoped in the same Capsule module,
-and are thereby available to the calling program.
-</p>
-<p>
-The <tt>main_file</tt> can load or require other files with <tt>load</tt>
+and are thereby available to the calling program.</p>
+
+<p>The <tt>main_file</tt> can load or require other files with <tt>load</tt>
 and <tt>require</tt>, as usual. These methods, in the Capsule context, add
 some behavior to the <tt>Kernel</tt> <tt>load</tt> and <tt>require</tt>
 methods: <tt>Capsule#load</tt> and <tt>Capsule#require</tt> first search
-for files relative to the <tt>main_file</tt>&#8217;s dir. Files loaded in
-this way (&#8220;dependent local files&#8221;) are treated like the script
-file itself: top-level definitions are added to the script module that is
-returned by <tt>load</tt> or <tt>require</tt>.
-</p>
-<p>
-Both <tt>Capsule#load</tt> and <tt>Capsule#require</tt> fall back to the
+for files relative to the <tt>main_file</tt>‘s dir. Files loaded in this
+way (“dependent local files”) are treated like the script file itself:
+top-level definitions are added to the script module that is returned by
+<tt>load</tt> or <tt>require</tt>.</p>
+
+<p>Both <tt>Capsule#load</tt> and <tt>Capsule#require</tt> fall back to the
 Kernel versions if the file is not found locally. Hence, other ruby
 libraries can be loaded and required as usual, assuming their names do not
 conflict with local file names. Definitions from those files go into the
 usual scope (typically global). The normal ruby <tt>load</tt> and
 <tt>require</tt> behavior can be forced by calling <tt>Kernel.load</tt> and
-<tt>Kernel.require</tt>.
-</p>
-<p>
-A Capsule immitates the way the top-level ruby context works, so a ruby
+<tt>Kernel.require</tt>.</p>
+
+<p>A Capsule immitates the way the top-level ruby context works, so a ruby
 file that was originally intended to be run from the top level, defining
 top-level constants and top-level methods, can also be run as a Capsule,
 and its top-level constants and top-level methods are wrapped in the
-script&#8217;s scope. The difference between this behavior and simply
-wrapping the loaded definitions in an <em>anonymous</em> module using
+script’s scope. The difference between this behavior and simply wrapping
+the loaded definitions in an <em>anonymous</em> module using
 <tt>Kernel.load(main_file, true)</tt> is that the top-level methods and
 top-level constants defined in the script are accessible using the Capsule
-instance.
-</p>
-<p>
-The top-level definitions of a Capsule can be accessed after it has been
-loaded, as follows:
-</p>
-<p>
-<tt>script.meth</tt>
-</p>
-<ul>
-<li><p>
-Call a method defined using <tt>def meth</tt> or <tt>def self.meth</tt> in
-the script file.
-</p>
-</li>
-</ul>
-<p>
-<tt>script::K</tt>
-</p>
-<ul>
-<li><p>
-Access a class, module, or constant defined using <tt>K = val</tt> in the
-script file.
-</p>
-</li>
-</ul>
-<p>
-An &#8220;input&#8221; can be passed to the script before loading. Simply
-call Capsule.new (or Capsule.load) with a block. The block is passed a
-single argument, the Capsule module, and executed before the files are
-loaded into the Capsule&#8217;s scope. Setting a constant in this block
-makes the constant available to the script during loading. For example:
-</p>
-<pre>
-  script = Capsule.load(&quot;my-script.rb&quot;) { |capsule| capsule::INPUT = 3 }
-</pre>
-<p>
-Note that all methods defined in the script file are both instance methods
+instance.</p>
+
+<p>The top-level definitions of a Capsule can be accessed after it has been
+loaded, as follows:</p>
+
+<p><tt>script.meth</tt></p>
+<ul><li>
+<p>Call a method defined using <tt>def meth</tt> or <tt>def self.meth</tt> in
+the script file.</p>
+</li></ul>
+
+<p><tt>script::K</tt></p>
+<ul><li>
+<p>Access a class, module, or constant defined using <tt>K = val</tt> in the
+script file.</p>
+</li></ul>
+
+<p>An “input” can be passed to the script before loading. Simply call
+Capsule.new (or Capsule.load) with a block. The block is passed a single
+argument, the Capsule module, and executed before the files are loaded into
+the Capsule’s scope. Setting a constant in this block makes the constant
+available to the script during loading. For example:</p>
+
+<pre>script = Capsule.load(&quot;my-script.rb&quot;) { |capsule| capsule::INPUT = 3 }</pre>
+
+<p>Note that all methods defined in the script file are both instance methods
 of the module and methods of the module instance (the effect of
 <tt>Module#module_function</tt>). So <tt>include</tt>-ing a Capsule module
 in a class will give instances of the class all the methods and constants
-defined in the script, and they will reference the instance&#8217;s
-instance variables, rather than the Capsule module&#8217;s instance
-variables.
-</p>
-<p>
-The Capsule class was inspired by Nobu Nokada&#8217;s suggestion in <a
+defined in the script, and they will reference the instance’s instance
+variables, rather than the Capsule module’s instance variables.</p>
+
+<p>The Capsule class was inspired by Nobu Nokada’s suggestion in <a
 href="http://ruby-talk.org/62727">ruby-talk.org/62727</a>, in a thread
 (started in <a href="http://ruby-talk.org/62660">ruby-talk.org/62660</a>)
-about how to use ruby script files as specifications of objects.
-</p>
+about how to use ruby script files as specifications of objects.</p>
+
 <h2>Installation</h2>
-<p>
-To install with RubyGems simply open a console and type:
-</p>
-<pre>
-  gem install capsule
-</pre>
-<p>
-Local installation requires Setup.rb (gem install setup), then download the
-tarball package and type:
-</p>
-<pre>
-  tar -xvzf capsule-1.0.0.tgz
-  cd capsule-1.0.0
-  sudo setup.rb all
-</pre>
-<p>
-Windows users use &#8216;ruby setup.rb all&#8217;.
-</p>
+
+<p>To install with RubyGems simply open a console and type:</p>
+
+<pre>gem install capsule</pre>
+
+<p>Local installation requires Setup.rb (gem install setup), then download the
+tarball package and type:</p>
+
+<pre>tar -xvzf capsule-1.0.0.tgz
+cd capsule-1.0.0
+sudo setup.rb all</pre>
+
+<p>Windows users use ‘ruby setup.rb all’.</p>
+
 <h2>Legal</h2>
-<p>
-(AGPL 3 License)
-</p>
-<p>
-Copyright &#169; 2007 Thomas Sawyer Copyright &#169; 2004 Joel VanderWerf
-</p>
-<p>
-Capsule is based on Joel VanderWerf&#8217;s Script library.
-</p>
-<p>
-Unless otherwise agreed upon by the copyright holder, this program is
-ditributed under the terms of the GNU Affero General Public License v3.
-</p>
-<p>
-See COPYING.rdoc file for details.
-</p>
+
+<p>(AGPL 3 License)</p>
+
+<p>Copyright © 2007 Thomas Sawyer</p>
+
+<p>Capsule is based on Joel VanderWerf’s Script library.</p>
+
+<p>Copyright © 2004 Joel VanderWerf</p>
+
+<p>Unless otherwise agreed upon by the copyright holder, this program is
+ditributed under the terms of the GNU Affero General Public License v3.</p>
+
+<p>See COPYING.rdoc file for details.</p>
