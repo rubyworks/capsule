@@ -3,9 +3,9 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>File: README.rdoc [Capsule]</title>
+  <title>File: capsule.rb [&quot;Capsule&quot;]</title>
 
   <link rel="SHORTCUT ICON" href="../assets/icon/file.png">
 
@@ -39,8 +39,8 @@
   <div class="head">
     <h1>
       <img src="../assets/icon/file.png" align="absmiddle">&nbsp;
-      <a href="../index.html">Capsule</a>&nbsp;
-      <a href="/">README.rdoc</a>
+      <a href="../index.html">&quot;Capsule&quot;</a>&nbsp;
+      <a href="/">capsule.rb</a>
     </h1>
   </div>
 
@@ -49,8 +49,17 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">Mon Apr 19 13:38:54 -0400 2010</dd>
+        <dd class="modified-date">Thu May 12 10:57:33 -0400 2011</dd>
 
+        
+        <dt class="requires">Requires</dt>
+        <dd class="requires">
+          <ul>
+          
+            <li>capsule/autoimport</li>
+          
+          </ul>
+        </dd>
         
 
         
@@ -64,11 +73,17 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../files/HISTORY.html">HISTORY</a></li>
+          <li class="file"><a href="../COPYING_rdoc.html">COPYING.rdoc</a></li>
         
-          <li class="file"><a href="../files/LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
         
-          <li class="file"><a href="../files/README_rdoc.html">README.rdoc</a></li>
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../AGPL3_txt.html">AGPL3.txt</a></li>
         
         </ul>
       </div>
@@ -89,13 +104,13 @@
 
         <ul class="link-list">
         
-          <li class="class"><a href="../classes/Capsule.html">Capsule</a></li>
+          <li class="class"><a href="../Capsule.html">Capsule</a></li>
         
-          <li class="class"><a href="../classes/Capsule/MissingFile.html">Capsule::MissingFile</a></li>
+          <li class="class"><a href="../Capsule/MissingFile.html">Capsule::MissingFile</a></li>
         
-          <li class="module"><a href="../classes/Kernel.html">Kernel</a></li>
+          <li class="class"><a href="../Module.html">Module</a></li>
         
-          <li class="class"><a href="../classes/Module.html">Module</a></li>
+          <li class="module"><a href="../Module/Kernel.html">Module::Kernel</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -109,55 +124,61 @@
             
             <li class="singleton" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000000">::load</a>
+              <a href="Capsule.html#method-c-load">::load</a>
             </li>
           
             
             <li class="singleton" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000001">::new</a>
+              <a href="Capsule.html#method-c-new">::new</a>
             </li>
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Kernel</span>
-              <a href="classes/Kernel.html#M000010">#autoimport</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000007">#include</a>
+              <span class="method-parent-aside">Module::Kernel</span>
+              <a href="Module/Kernel.html#method-i-autoimport">#autoimport</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000006">#include_script</a>
+              <a href="Capsule.html#method-i-include">#include</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000003">#load</a>
+              <a href="Capsule.html#method-i-include_script">#include_script</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000005">#load_in_module</a>
+              <a href="Capsule.html#method-i-load">#load</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000002">#load_path_lookup</a>
+              <a href="Capsule.html#method-i-load_in_module">#load_in_module</a>
             </li>
           
             
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000004">#require</a>
+              <a href="Capsule.html#method-i-load_path_lookup">#load_path_lookup</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Capsule</span>
+              <a href="Capsule.html#method-i-require">#require</a>
+            </li>
+          
+            
+            <li class="method" style="clear: both;">
+              <span class="method-parent-aside">Module</span>
+              <a href="Module.html#method-i-unknown">#unknown</a>
             </li>
           
         </ul>
@@ -169,7 +190,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://proutils.github.com/webri">WebRI Newfish</a> 1.2
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -186,86 +207,8 @@
    -->
 
   <div id="documentation">
-    <h1><a href="../classes/Capsule.html">Capsule</a></h1>
-<ul>
-<li>home: <a
-href="http://rubyworks.github.com/capsule">rubyworks.github.com/capsule</a>
-
-</li>
-<li>work: <a
-href="http://github.com/rubyworks/capsule">github.com/rubyworks/capsule</a>
-
-</li>
-</ul>
-<h2>DESCRIPTION</h2>
-<p>
-<a href="../classes/Capsule.html">Capsule</a> is subclass of <a
-href="../classes/Module.html">Module</a>. It encapsulates an extenal script
-as a functions module.
-</p>
-<p>
-<a href="../classes/Capsule.html">Capsule</a> is based on Joel
-VanderWerf&#8217;s Script class (script.rb).
-</p>
-<h2>FEATURES/ISSUES</h2>
-<ul>
-<li>Convert external &#8220;toplevel&#8221; scripts into modules.
-
-</li>
-<li>Provides autoload feature.
-
-</li>
-</ul>
-<h2>RELEASE NOTES</h2>
-<p>
-Please see <a href="HISTORY.html">HISTORY</a> file.
-</p>
-<h2>SYNOPSIS</h2>
-<p>
-To encapsulate a script in a Capsule:
-</p>
-<pre>
-  myscript = Capsule.new('myscript.rb')
-</pre>
-<p>
-If the script is in the Ruby load path, then you can use <tt><a
-href="../classes/Capsule.html#M000000">Capsule.load</a></tt>.
-</p>
-<pre>
-  myscript = Capsule.load('myscript.rb')
-</pre>
-<h2>HOW TO INSTALL</h2>
-<p>
-To install with RubyGems simply open a console and type:
-</p>
-<pre>
-  gem install capsule
-</pre>
-<p>
-Local installation requires Setup.rb (gem install setup), then download the
-tarball package and type:
-</p>
-<pre>
-  tar -xvzf capsule-1.0.0.tgz
-  cd capsule-1.0.0
-  sudo setup.rb all
-</pre>
-<p>
-Windows users use &#8216;ruby setup.rb all&#8217;.
-</p>
-<h2>COPYING</h2>
-<p>
-Copyright &#169; 2007 Thomas Sawyer
-</p>
-<p>
-Copyright &#169; 2005 Joel VanderWerf
-</p>
-<p>
-This program is ditributed unser the terms of the MIT license.
-</p>
-<p>
-See <a href="LICENSE.html">LICENSE</a> file for details.
-</p>
+    
+<p>require ‘rbconfig’</p>
 
   </div>
 

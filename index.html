@@ -1,307 +1,72 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.1//EN" "http://www.w3.org/TR/xhtml11/DTD/xhtml11.dtd">
-
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<html>
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-
   <title>Capsule</title>
-
-  <link rel="SHORTCUT ICON" href="assets/icon/ruby.png">
-
-  <link type="text/css" rel="stylesheet" href="assets/rdoc.css" media="screen" />
-  <link type="text/css" rel="stylesheet" href="assets/highlight/styles/github.css" title="GitHub" />
-
-  <script type="text/javascript" charset="utf-8" src="assets/jquery.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/highlight/highlight.pack.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/quicksearch.js"></script>
-  <script type="text/javascript" charset="utf-8" src="assets/main.js"></script>
-
-  <script type="text/javascript">
-    $(document).ready( function() {
-      $('#documentation pre').wrapInner('<code></code>');
-      hljs.tabReplace = '    ';
-      hljs.initHighlightingOnLoad('ruby');
-
-	    hookSourceViews();
-	    hookDebuggingToggle();
-	    hookQuickSearch();
-	    highlightLocationTarget();
-
-	    $('ul.link-list a').bind( "click", highlightClickTarget );
+  <link rel="icon" type="image/png" href="assets/icon.png">
+  <script src="https://www.google.com/jsapi?key=ABQIAAAAC0cwg6G7o9jiwZmqNywcHhTFDYVHHqbagoxxH3eapnRTbNVJyxRCtIdgQ791BGYBsns_CTixx4KyPg" type="text/javascript"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.2/jquery.min.js"></script>
+  <script>
+    //google.load("jquery", "1.5.2");
+    $(document).ready(function(){
+      $("#readme").load("readme.html");
     });
   </script>
+  <style>
+    body { font-family: monospace; margin: 0; padding: 0; background: url(assets/bg.jpg) top center repeat-x #000;}
+    li p { margin: 2px; }
+    h1 { font-size: 4em; height: 50px; padding: 0; }
+    h2 { margin-top: 30px; }
+    pre { padding: 20px; background: #ded; font-size: 0.9em; font-family: courier; font-weight: bold; }
+    a { text-decoration: none; color: green; }
+    a:hover { text-decoration: underline; }
+
+    #nav { font-size: 1.2em; text-align: center; background: #222; padding: 10px; color: #FFF; font-weight: bold; }
+    #nav a { color: #5F5; font-weight: bold; }
+    #main { margin: 0 auto; max-width: 780px; }
+    #readme { opacity: 0.9; background: #fff; padding: 0.5em 2em 3em 2em; }
+    #footer { margin-top: 0; padding: 40px 0; text-align: center; background: #222; border-top: 1px solid #999; }
+
+    #rubyworks{ position: fixed; bottom: 10px; right: 10px; padding: 0; opacity: 0.3; }
+  </style>
 </head>
-<body class="indexpage">
+<body>
+
 <div id="main">
-
-  
-  <div class="head">
-    <h1>
-      <img src="assets/icon/project.png" align="absmiddle">&nbsp;
-      <a href="index.html">Capsule</a>
-    </h1>
+  <div id="nav">
+    <a href="" style="color: white;">Capsule</a> &nbsp; &middot; &nbsp;
+    <a href="docs/api/index.html">API</a> &nbsp;
+    <a href="docs/qed/index.html">QED</a> &nbsp;
+    <a href="http://rubygems.org/gems/capsule">Gem</a> &nbsp;
+    <a href="http://github.com/rubyworks/capsule">Code</a> &nbsp;
   </div>
 
-  <div id="metadata">
-    <div id="project-metadata">
-
-      
-      
-      <div id="fileindex-section" class="section project-section">
-        <h3 class="section-header">Information</h3>
-        <ul>
-        
-          <li class="file"><a href="files/HISTORY.html">HISTORY</a></li>
-        
-          <li class="file"><a href="files/LICENSE.html">LICENSE</a></li>
-        
-          <li class="file"><a href="files/README_rdoc.html">README.rdoc</a></li>
-        
-        </ul>
-      </div>
-      
-
-      <div id="classindex-section" class="section project-section">
-        <h3 class="section-header">Class Index
-          <span class="search-toggle"><img src="assets/icon/find.png"
-            height="16" width="16" alt="[+]"
-            title="show/hide quicksearch" /></span></h3>
-        <form action="#" method="get" accept-charset="utf-8" class="initially-hidden">
-        <fieldset>
-          <legend>Quicksearch</legend>
-          <input type="text" name="quicksearch" value=""
-            class="quicksearch-field" />
-        </fieldset>
-        </form>
-
-        <ul class="link-list">
-        
-          <li class="class"><a href="classes/Capsule.html">Capsule</a></li>
-        
-          <li class="class"><a href="classes/Capsule/MissingFile.html">Capsule::MissingFile</a></li>
-        
-          <li class="module"><a href="classes/Kernel.html">Kernel</a></li>
-        
-          <li class="class"><a href="classes/Module.html">Module</a></li>
-        
-        </ul>
-        <div id="no-class-search-results" style="display: none;">No matching classes.</div>
-      </div>
-
-      <!-- METHODS -->
-      <div id="methodindex-section" class="section project-section">
-        <h3 class="section-header">Method Index</h3>
-        <ul>
-          
-            
-            <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000000">::load</a>
-            </li>
-          
-            
-            <li class="singleton" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000001">::new</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Kernel</span>
-              <a href="classes/Kernel.html#M000010">#autoimport</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000007">#include</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000006">#include_script</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000003">#load</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000005">#load_in_module</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000002">#load_path_lookup</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Capsule</span>
-              <a href="classes/Capsule.html#M000004">#require</a>
-            </li>
-          
-        </ul>
-      </div>
-
-    </div>
-
-    <div id="validator-badges">
-      
-      <div style="float: right; margin-right: 5px;">
-        <a href="http://validator.w3.org/check/referer"><img src="assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
-      </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI NewFish</a> 1.2
-      <br/><br/> 
-    </div>
+  <div id="readme">
   </div>
 
-<!--
-  
-  
-  <h2>Files</h2>
-  <ul>
-    
-      <li class="file"><a href="files/HISTORY.html">HISTORY</a></li>
-    
-      <li class="file"><a href="files/LICENSE.html">LICENSE</a></li>
-    
-      <li class="file"><a href="files/README_rdoc.html">README.rdoc</a></li>
-    
-  </ul>
-  
-
-  <h2>Classes/Modules</h2>
-  <ul>
-    
-    <li class="class"><a href="classes/Capsule.html">Capsule</a></li>
-    
-    <li class="class"><a href="classes/Capsule/MissingFile.html">Capsule::MissingFile</a></li>
-    
-    <li class="module"><a href="classes/Kernel.html">Kernel</a></li>
-    
-    <li class="class"><a href="classes/Module.html">Module</a></li>
-    
-  </ul>
-
-  <h2>Methods</h2>
-  <ul>
-    
-      <li><a href="classes/Capsule.html#M000000">::load &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000001">::new &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Kernel.html#M000010">#autoimport &mdash; Kernel</a></li>
-    
-      <li><a href="classes/Capsule.html#M000007">#include &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000006">#include_script &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000003">#load &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000005">#load_in_module &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000002">#load_path_lookup &mdash; Capsule</a></li>
-    
-      <li><a href="classes/Capsule.html#M000004">#require &mdash; Capsule</a></li>
-    
-  </ul>
--->
-
-  
-  <div id="documentation">
-    <h1><a href="../classes/Capsule.html">Capsule</a></h1>
-<ul>
-<li>home: <a
-href="http://rubyworks.github.com/capsule">rubyworks.github.com/capsule</a>
-
-</li>
-<li>work: <a
-href="http://github.com/rubyworks/capsule">github.com/rubyworks/capsule</a>
-
-</li>
-</ul>
-<h2>DESCRIPTION</h2>
-<p>
-<a href="../classes/Capsule.html">Capsule</a> is subclass of <a
-href="../classes/Module.html">Module</a>. It encapsulates an extenal script
-as a functions module.
-</p>
-<p>
-<a href="../classes/Capsule.html">Capsule</a> is based on Joel
-VanderWerf&#8217;s Script class (script.rb).
-</p>
-<h2>FEATURES/ISSUES</h2>
-<ul>
-<li>Convert external &#8220;toplevel&#8221; scripts into modules.
-
-</li>
-<li>Provides autoload feature.
-
-</li>
-</ul>
-<h2>RELEASE NOTES</h2>
-<p>
-Please see <a href="HISTORY.html">HISTORY</a> file.
-</p>
-<h2>SYNOPSIS</h2>
-<p>
-To encapsulate a script in a Capsule:
-</p>
-<pre>
-  myscript = Capsule.new('myscript.rb')
-</pre>
-<p>
-If the script is in the Ruby load path, then you can use <tt><a
-href="../classes/Capsule.html#M000000">Capsule.load</a></tt>.
-</p>
-<pre>
-  myscript = Capsule.load('myscript.rb')
-</pre>
-<h2>HOW TO INSTALL</h2>
-<p>
-To install with RubyGems simply open a console and type:
-</p>
-<pre>
-  gem install capsule
-</pre>
-<p>
-Local installation requires Setup.rb (gem install setup), then download the
-tarball package and type:
-</p>
-<pre>
-  tar -xvzf capsule-1.0.0.tgz
-  cd capsule-1.0.0
-  sudo setup.rb all
-</pre>
-<p>
-Windows users use &#8216;ruby setup.rb all&#8217;.
-</p>
-<h2>COPYING</h2>
-<p>
-Copyright &#169; 2007 Thomas Sawyer
-</p>
-<p>
-Copyright &#169; 2005 Joel VanderWerf
-</p>
-<p>
-This program is ditributed unser the terms of the MIT license.
-</p>
-<p>
-See <a href="LICENSE.html">LICENSE</a> file for details.
-</p>
-
+  <div id="footer">
+    <script type="text/javascript"><!--
+    google_ad_client = "ca-pub-1126154564663472";
+    /* RUBYWORKS 09-10-02 728x90 */
+    google_ad_slot = "0788888658";
+    google_ad_width = 728;
+    google_ad_height = 90;
+    //-->
+    </script>
+    <script type="text/javascript"
+    src="http://pagead2.googlesyndication.com/pagead/show_ads.js">
+    </script>
   </div>
-  
-
 </div>
+
+<div style="position: absolute; top: 0; right: 0;">
+  <a href="http://github.com/rubyworks/capsule"><img src="assets/fork-me.png" /></a>
+</div>
+
+<div id="rubyworks">
+  <a href="http://rubyworks.github.com">
+    <img src="http://rubyworks.github.com/assets/images/seal.png" height="175px" />
+  </a>
+</div>
+
 </body>
 </html>
 

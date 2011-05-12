@@ -18,7 +18,7 @@ body {
 }
 
 #main {
-  width: 1048px;
+  max-width: 1080px;
   margin: 0 auto;
 }
 
@@ -54,7 +54,7 @@ a:hover {
 }
 
 pre {
-  padding: 0.5em 0;
+  padding: 0.5em;
   border: 1px solid #ccc;
 }
 
@@ -66,6 +66,9 @@ ul {
   margin-left: 20px;
 }
 
+li p {
+  margin: 0; padding: 0;
+}
 
 .head {
   width: auto;
@@ -210,7 +213,7 @@ body.file p {
   float: right;
   width: 330px;
   margin-top: 10px;
-  border-left: 1px solid #ccc;
+  border-left: 0px solid #ccc;
   padding-left: 12px;
 }
 
@@ -340,7 +343,7 @@ ul.link-list .type {
 .method-parent-aside {
   float: right; font-size: 0.7em;
   font-weight: bold;
-  padding: 0 20px;
+  padding: 0 0 0 15px;
   color: #aaa;
   font-family: helvetica;
   letter-spacing: -1px;
@@ -352,7 +355,7 @@ ul.link-list .type {
 /* @group Documentation Section */
 
 #documentation h1 {
-  margin: 8px 0 4px 0;
+  margin: 8px 0 4px -0.1em;
   padding: 0.2em 0.1em 0.1em 0.1em;
   border-bottom: 1px solid #bbb;
   -moz-border-radius: 5px;

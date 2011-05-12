@@ -3,12 +3,12 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
-  <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+  <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 
-  <title>Module: Kernel</title>
+  <title>Module: Module::Kernel</title>
 
   
-    <link rel="SHORTCUT ICON" href="../assets/img/module.png">
+    <link rel="SHORTCUT ICON" href="../assets/icon/module.png">
   
 
   <link type="text/css" rel="stylesheet" href="../assets/rdoc.css" media="screen" />
@@ -40,10 +40,10 @@
   <div class="head">
     <h1>
       
-        <img src="../assets/img/module.png" align="absmiddle">&nbsp;
+        <img src="../assets/icon/module.png" align="absmiddle">&nbsp;
       
-      <a href="../index.html">Capsule</a>&nbsp;
-      <a href="/">Kernel</a>
+      <a href="../index.html">&quot;Capsule&quot;</a>&nbsp;
+      <a href="/">Module::Kernel</a>
     </h1>
   </div>
 
@@ -55,8 +55,8 @@
         <div class="section-body">
           <ul>
           
-            <li class="file"><a href="../files/lib/capsule_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
-              class="thickbox" title="lib/capsule.rb">lib/capsule.rb</a></li>
+            <li class="file"><a href="../lib/capsule/autoimport_rb.html?TB_iframe=true&amp;height=550&amp;width=785"
+              class="thickbox" title="lib/capsule/autoimport.rb">lib/capsule/autoimport.rb</a></li>
           
           </ul>
         </div>
@@ -84,7 +84,7 @@
           
             
             <li class="method">
-              <a href="#M000010">#autoimport</a>
+              <a href="#method-i-autoimport">#autoimport</a>
             </li>
           
         </ul>
@@ -102,11 +102,17 @@
         <h3 class="section-header">Information</h3>
         <ul>
         
-          <li class="file"><a href="../files/HISTORY.html">HISTORY</a></li>
+          <li class="file"><a href="../COPYING_rdoc.html">COPYING.rdoc</a></li>
         
-          <li class="file"><a href="../files/LICENSE.html">LICENSE</a></li>
+          <li class="file"><a href="../PROFILE.html">PROFILE</a></li>
         
-          <li class="file"><a href="../files/README_rdoc.html">README.rdoc</a></li>
+          <li class="file"><a href="../HISTORY_rdoc.html">HISTORY.rdoc</a></li>
+        
+          <li class="file"><a href="../VERSION.html">VERSION</a></li>
+        
+          <li class="file"><a href="../README_rdoc.html">README.rdoc</a></li>
+        
+          <li class="file"><a href="../AGPL3_txt.html">AGPL3.txt</a></li>
         
         </ul>
       </div>
@@ -128,13 +134,13 @@
         <!-- classpage.html : classes -->
         <ul class="link-list">
         
-          <li class="class"><a href="../classes/Capsule.html">Capsule</a></li>
+          <li class="class"><a href="../Capsule.html">Capsule</a></li>
         
-          <li class="class"><a href="../classes/Capsule/MissingFile.html">Capsule::MissingFile</a></li>
+          <li class="class"><a href="../Capsule/MissingFile.html">Capsule::MissingFile</a></li>
         
-          <li class="module"><a href="../classes/Kernel.html">Kernel</a></li>
+          <li class="class"><a href="../Module.html">Module</a></li>
         
-          <li class="class"><a href="../classes/Module.html">Module</a></li>
+          <li class="module"><a href="../Module/Kernel.html">Module::Kernel</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -146,7 +152,7 @@
       <div style="float: right; margin-right: 5px;">
         <a href="http://validator.w3.org/check/referer"><img src="../assets/icon/check.png" alt="[Validate]" height="16" width="16" /></a>
       </div>
-      Generated with <a href="http://github.com/proutils/webri">WebRI Redfish</a> 1.2
+      Generated with <a href="http://rubyworks.github.com/newfish">Newfish</a> 0.2.0
       <br/><br/>
     </div>
   </div>
@@ -174,7 +180,7 @@
 
     
       <div id="autoimport-method" class="method-detail ">
-        <a name="M000010"></a>
+        <a name="method-i-autoimport"></a>
 
         <div class="method-heading">
         
@@ -186,19 +192,17 @@
 
         <div class="method-description">
           
-          <p>
-Calls Object.autoimport
-</p>
+          <p>Calls Object.autoimport</p>
           
 
           
           <div class="method-source-code"
             id="autoimport-source">
 <pre>
-<span class="ruby-comment cmt"># File lib/capsule.rb, line 217</span>
-  <span class="ruby-keyword kw">def</span> <span class="ruby-identifier">autoimport</span>(<span class="ruby-identifier">mod</span>, <span class="ruby-identifier">file</span>)
-    <span class="ruby-constant">Object</span>.<span class="ruby-identifier">autoimport</span>(<span class="ruby-identifier">mod</span>, <span class="ruby-identifier">file</span>)
-  <span class="ruby-keyword kw">end</span></pre>
+<span class="ruby-comment"># File lib/capsule/autoimport.rb, line 39</span>
+<span class="ruby-keyword">def</span> <span class="ruby-identifier">autoimport</span>(<span class="ruby-identifier">mod</span>, <span class="ruby-identifier">file</span>)
+  <span class="ruby-constant">Object</span>.<span class="ruby-identifier">autoimport</span>(<span class="ruby-identifier">mod</span>, <span class="ruby-identifier">file</span>)
+<span class="ruby-keyword">end</span></pre>
           </div>
           
         </div>
