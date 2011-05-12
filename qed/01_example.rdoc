@@ -1,0 +1,29 @@
+= Capsule Example
+
+Let's say we have a Ruby script called 'hello.rb':
+
+  def hello
+    "HELLO!"
+  end
+
+We can load that script into a Capsule and have direct access 
+to the #hello method.
+
+  Hello = Capsule.new('hello.rb')
+
+  Hello.hello #=> "HELLO!"
+
+By default, capsules are self extendind (`extend self`), which is
+why the above method become accessible. This behavior can be tured
+off by passing a `extend=>false` option to the #new method.
+
+  Hello2 = Capsule.new('hello.rb', :extend=>false)
+
+  expect NoMethodError do
+    Hello2.hello
+  end
+
+Without automatic self extension, the capsule still has access to all the
+classes, modules, constants and explicitly defined class methods of the 
+loaded script.
+
