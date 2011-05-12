@@ -144,11 +144,12 @@ Windows users use 'ruby setup.rb all'.
 (AGPL 3 License)
 
 Copyright (c) 2007 Thomas Sawyer
-Copyright (c) 2004 Joel VanderWerf
-
-Capsule is based on Joel VanderWerf's Script library.
 
 Unless otherwise agreed upon by the copyright holder, this program is
 ditributed under the terms of the GNU Affero General Public License v3.
+
+Capsule is based on Joel VanderWerf's Script library.
+
+Copyright (c) 2004 Joel VanderWerf
 
 See COPYING.rdoc file for details.

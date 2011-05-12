@@ -1,6 +1,7 @@
 --- !ruby/object:Gem::Specification 
 name: capsule
 version: !ruby/object:Gem::Version 
+  hash: 19
   prerelease: false
   segments: 
   - 1
@@ -52,6 +53,7 @@ required_ruby_version: !ruby/object:Gem::Requirement
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      hash: 3
       segments: 
       - 0
       version: "0"
@@ -60,6 +62,7 @@ required_rubygems_version: !ruby/object:Gem::Requirement
   requirements: 
   - - ">="
     - !ruby/object:Gem::Version 
+      hash: 3
       segments: 
       - 0
       version: "0"
