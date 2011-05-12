@@ -1,28 +1,35 @@
 --- 
 name: capsule
-repositories: 
-  public: git://github.com/rubyworks/capsule.git
+version: 1.1.0
 title: Capsule
-contact: rubyworks-mailinglist@googlegroups.com
-resources: 
-  home: http://rubyworks.github.com/capsule
-pom_verison: 1.0.0
-manifest: 
-- .ruby
-- lib/capsule.rb
-- HISTORY.rdoc
-- PROFILE
-- LICENSE
-- README.rdoc
-- VERSION
-suite: rubyworks
-version: 1.0.0
-licenses: 
-- Apache 2.0
-copyright: Copyright (c) 2005 Joel VanderWerf
+summary: Encapsulate Scripts in Modules
 description: Capsule is subclass of Module. It encapsulates an extenal script as a functions module.
-summary: Encapsulate scripts as functional modules
+loadpath: 
+- lib
+manifest: MANIFEST
+requires: []
+
+conflicts: []
+
+replaces: []
+
+engine_check: []
+
+organization: Rubyworks
+contact: trans <transfire@gmail.com>
+created: 2005-01-01
+copyright: Copyright (c) 2007 Thomas Sawyer Copyright (c) 2004 Joel VanderWerf
+licenses: 
+- AGPL v3
 authors: 
 - Joel VanderWerf
 - Thomas Sawyer
-created: 2005-01-01
+maintainers: []
+
+resources: 
+  home: http://rubyworks.github.com/capsule
+  work: http://github.com/rubyworks/capsule
+  mail: http://groups.google.com/group/rubyworks-mailinglist
+repositories: 
+  public: git://github.com/rubyworks/capsule.git
+spec_version: 1.0.0

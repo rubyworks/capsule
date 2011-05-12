@@ -1,6 +1,20 @@
 = RELEASE HISTORY
 
-== 1.0.0 // 2009-07-01
+== 1.1.0 / 2011-05-12
+
+This release makes two small enhancements to the Capsule class.
+It will automatically try `.rb` extension of script names that
+lack an extension and it now provides an `:extend` option which
+can be set to `false` to deactive a capsules sef extension
+(`extend self`).
+
+Changes:
+
+* Search for scripts with  common ruby extensions.
+* Add :extend option to control self extension.
+
+
+== 1.0.0 / 2009-07-01
 
 This is the initial stand-alone release of Capsule,
 spun-off from Ruby Facets.

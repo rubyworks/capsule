@@ -1,8 +1,8 @@
-#!mast -x Syckfile -x Profile .ruby bin lib meta test [A-Z]*
+#!mast .ruby bin lib meta test [A-Z][A-Z]*
 .ruby
+lib/capsule/autoimport.rb
 lib/capsule.rb
 HISTORY.rdoc
-PROFILE
-LICENSE
 README.rdoc
-VERSION
+AGPL3.txt
+COPYING.rdoc
