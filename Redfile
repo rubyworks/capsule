@@ -14,23 +14,29 @@ gemcutter:
   service: GemCutter
   active: true
 
-box:
-  service: Box
-  types  : [gem, gz]
+gem:
+  service: Gem
   active : true
 
-ridoc:
-  service: RIDoc
+ri:
+  service: RI
   include: ~
   exclude: ~
+  output : ri
   active : true
 
 rdoc:
   service : RDoc
-  template: newfish
+  format  : newfish
   include : ~
-  exclude : [ Syckfile ]
+  exclude : [Redfile]
+  output  : site/docs/api
   active  : true
+
+qedoc:
+  service: Custom
+  document: |
+    system "qedoc -t Capsule -o site/docs/qed qed/*.rdoc"
 
 syntax:
   service  : Syntax
@@ -64,11 +70,11 @@ stats:
   output   : ~
   active   : true
 
-vclog:
-  service  : VClog
-  formats  : [json]
-  #layout   : rel    # gnu
-  typed    : false
-  output   : ~
-  active   : false
+#vclog:
+#  service  : VClog
+#  formats  : [json]
+#  #layout   : rel    # gnu
+#  typed    : false
+#  output   : ~
+#  active   : false
 
