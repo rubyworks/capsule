@@ -1,24 +1,20 @@
 = COPYRIGHT NOTICES
 
-== Capsule
-
-Copyright (C)2007 Thomas Sawyer
+== Capsule - Copyright (c) 2007 Thomas Sawyer
 
 Unless otherwise agreed upon by the copyright holder this software is
 made available under the terms of the GNU Affero General Public License
 (see AGPL3.txt.)
 
-(http://rubyworks.github.com/capsule)
+ref. http://rubyworks.github.com/capsule
 
 
-== Script
+== Script - Copyright (c) 2004 Joel VanderWerf
 
 Capsule is a derivation of Joel VanderWerf's Script library.
 
 Usable under the Ruby license. 
 
-Copyright (C)2004 Joel VanderWerf.
-
 Questions to mailto:vjoel@users.sourceforge.net.
 
-(http://redshift.sourceforge.net/script/)
+ref. http://redshift.sourceforge.net/script/
