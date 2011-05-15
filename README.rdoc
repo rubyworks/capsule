@@ -93,12 +93,12 @@ using the Capsule instance.
 The top-level definitions of a Capsule can be accessed after it has been
 loaded, as follows:
 
-<tt>script.meth</tt>
+<tt>capsule.meth</tt>
 
 - Call a method defined using <tt>def meth</tt> or <tt>def self.meth</tt> in
   the script file.
 
-<tt>script::K</tt>
+<tt>capsule::K</tt>
 
 - Access a class, module, or constant defined using <tt>K = val</tt> in the
   script file.
