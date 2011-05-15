@@ -15,15 +15,9 @@ class Module
     end
   end
 
-  ##
-  # When the constant named by symbol +mod+ is referenced, loads the script
-  # in filename using Capsule.load and defines the constant to be equal to the
-  # resulting Capsule module.
+  # See Kernel#autoimport.
   #
-  # Use like Module#autoload--however, the underlying opertation is #load rather
-  # than #require, because scripts, unlike libraries, can be loaded more than
-  # once. See examples/autoscript-example.rb
-
+  # TODO: Document this method using meta-programming markup.
   define_method(:autoimport) do |mod, file|
     if @autoimport.empty? #unless $autoimport_activated
       const_missing_definition_for_autoimport.call
@@ -34,8 +28,15 @@ end
 
 
 module Kernel
-  # Calls Object.autoimport
-
+  # When the constant named by symbol +mod+ is referenced, loads the script
+  # in filename using Capsule.load and defines the constant to be equal to the
+  # resulting Capsule module.
+  #
+  # Use like Module#autoload. However, the underlying opertation is #load rather
+  # than #require, because scripts, unlike libraries, can be loaded more than
+  # once. See examples/autoscript-example.rb.
+  #
+  # This method call `Object.autoimport` as defined in Module.
   def autoimport(mod, file)
     Object.autoimport(mod, file)
   end
