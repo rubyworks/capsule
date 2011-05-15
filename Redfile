@@ -29,7 +29,7 @@ rdoc:
   service : RDoc
   format  : newfish
   include : ~
-  exclude : [Redfile]
+  exclude : [Redfile, Version, Profile]
   output  : site/docs/api
   active  : true
 
