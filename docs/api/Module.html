@@ -86,29 +86,8 @@
 
       <!-- Namespace Contents -->
       
-      <div id="namespace-list-section" class="section">
-        <h3 class="section-header">Namespace</h3>
-        <ul class="link-list">
-          
-          <li class="module"><a href="Module/Kernel.html">Module::Kernel</a></li>
-          
-        </ul>
-      </div>
-      
 
       <!-- Method Quickref -->
-      
-      <div id="method-list-section" class="section">
-        <h3 class="section-header">Methods</h3>
-        <ul class="link-list">
-          
-            
-            <li class="method">
-              <a href="#method-i-unknown">#unknown</a>
-            </li>
-          
-        </ul>
-      </div>
       
 
       <!-- Included Modules -->
@@ -123,10 +102,6 @@
         <ul>
         
           <li class="file"><a href="./COPYING_rdoc.html">COPYING.rdoc</a></li>
-        
-          <li class="file"><a href="./Version.html">Version</a></li>
-        
-          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
@@ -158,9 +133,9 @@
         
           <li class="class"><a href="./Capsule/MissingFile.html">Capsule::MissingFile</a></li>
         
-          <li class="class"><a href="./Module.html">Module</a></li>
+          <li class="module"><a href="./Kernel.html">Kernel</a></li>
         
-          <li class="module"><a href="./Module/Kernel.html">Module::Kernel</a></li>
+          <li class="class"><a href="./Module.html">Module</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -195,55 +170,6 @@
 
     <!-- Methods -->
     
-    <div id="public-instance-method-details" class="method-section section">
-      <h3 class="section-header">Public Instance Methods</h3>
-
-    
-      <div id="unknown-method" class="method-detail ">
-        <a name="method-i-unknown"></a>
-
-        <div class="method-heading">
-        
-          <span class="method-name">unknown</span><span
-            class="method-args"></span>
-          <span class="method-click-advice">click to toggle source</span>
-        
-        </div>
-
-        <div class="method-description">
-          
-          <p>When the constant named by symbol <tt>mod</tt> is referenced, loads the
-script in filename using <a
-href="Capsule.html#method-c-load">Capsule.load</a> and defines the constant
-to be equal to the resulting <a href="Capsule.html">Capsule</a> module.</p>
-
-<p>Use like Module#autoload–however, the underlying opertation is #load
-rather than #require, because scripts, unlike libraries, can be loaded more
-than once. See examples/autoscript-example.rb</p>
-          
-
-          
-          <div class="method-source-code"
-            id="unknown-source">
-<pre>
-<span class="ruby-comment"># File lib/capsule/autoimport.rb, line 27</span>
-  <span class="ruby-identifier">define_method</span>(<span class="ruby-value">:autoimport</span>) <span class="ruby-keyword">do</span> <span class="ruby-operator">|</span><span class="ruby-identifier">mod</span>, <span class="ruby-identifier">file</span><span class="ruby-operator">|</span>
-    <span class="ruby-keyword">if</span> <span class="ruby-ivar">@autoimport</span>.<span class="ruby-identifier">empty?</span> <span class="ruby-comment">#unless $autoimport_activated</span>
-      <span class="ruby-identifier">const_missing_definition_for_autoimport</span>.<span class="ruby-identifier">call</span>
-    <span class="ruby-keyword">end</span>
-    (<span class="ruby-ivar">@autoimport</span> <span class="ruby-operator">||=</span> {})[<span class="ruby-identifier">mod</span>] = <span class="ruby-identifier">file</span>
-  <span class="ruby-keyword">end</span>
-<span class="ruby-keyword">end</span></pre>
-          </div>
-          
-        </div>
-
-        
-      </div>
-
-    
-    </div>
-  
 
   </div>
 

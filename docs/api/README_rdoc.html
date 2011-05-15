@@ -49,7 +49,7 @@
       <h3 class="section-header">File Stats</h3>
       <dl>
         <dt class="modified-date">Last Modified</dt>
-        <dd class="modified-date">Thu May 12 13:55:31 -0400 2011</dd>
+        <dd class="modified-date">Thu May 12 13:59:40 -0400 2011</dd>
 
         
 
@@ -65,10 +65,6 @@
         <ul>
         
           <li class="file"><a href="./COPYING_rdoc.html">COPYING.rdoc</a></li>
-        
-          <li class="file"><a href="./Version.html">Version</a></li>
-        
-          <li class="file"><a href="./Profile.html">Profile</a></li>
         
           <li class="file"><a href="./HISTORY_rdoc.html">HISTORY.rdoc</a></li>
         
@@ -99,9 +95,9 @@
         
           <li class="class"><a href="./Capsule/MissingFile.html">Capsule::MissingFile</a></li>
         
-          <li class="class"><a href="./Module.html">Module</a></li>
+          <li class="module"><a href="./Kernel.html">Kernel</a></li>
         
-          <li class="module"><a href="./Module/Kernel.html">Module::Kernel</a></li>
+          <li class="class"><a href="./Module.html">Module</a></li>
         
         </ul>
         <div id="no-class-search-results" style="display: none;">No matching classes.</div>
@@ -126,8 +122,8 @@
           
             
             <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Module::Kernel</span>
-              <a href="Module/Kernel.html#method-i-autoimport">#autoimport</a>
+              <span class="method-parent-aside">Kernel</span>
+              <a href="Kernel.html#method-i-autoimport">#autoimport</a>
             </li>
           
             
@@ -164,12 +160,6 @@
             <li class="method" style="clear: both;">
               <span class="method-parent-aside">Capsule</span>
               <a href="Capsule.html#method-i-require">#require</a>
-            </li>
-          
-            
-            <li class="method" style="clear: both;">
-              <span class="method-parent-aside">Module</span>
-              <a href="Module.html#method-i-unknown">#unknown</a>
             </li>
           
         </ul>
@@ -277,23 +267,23 @@ available to the calling program.</p>
 
 <p>The <tt>main_file</tt> can load or require other files with <tt>load</tt>
 and <tt>require</tt>, as usual. These methods, in the <a
-href="Capsule.html">Capsule</a> context, add some behavior to the
-<tt>Kernel</tt> <tt>load</tt> and <tt>require</tt> methods: <tt><a
-href="Capsule.html#method-i-load">Capsule#load</a></tt> and <tt><a
-href="Capsule.html#method-i-require">Capsule#require</a></tt> first search
-for files relative to the <tt>main_file</tt>‘s dir. Files loaded in this
-way (“dependent local files”) are treated like the script file itself:
-top-level definitions are added to the script module that is returned by
-<tt>load</tt> or <tt>require</tt>.</p>
+href="Capsule.html">Capsule</a> context, add some behavior to the <tt><a
+href="Kernel.html">Kernel</a></tt> <tt>load</tt> and <tt>require</tt>
+methods: <tt><a href="Capsule.html#method-i-load">Capsule#load</a></tt> and
+<tt><a href="Capsule.html#method-i-require">Capsule#require</a></tt> first
+search for files relative to the <tt>main_file</tt>‘s dir. Files loaded
+in this way (“dependent local files”) are treated like the script file
+itself: top-level definitions are added to the script module that is
+returned by <tt>load</tt> or <tt>require</tt>.</p>
 
 <p>Both <tt><a href="Capsule.html#method-i-load">Capsule#load</a></tt> and
 <tt><a href="Capsule.html#method-i-require">Capsule#require</a></tt> fall
-back to the Kernel versions if the file is not found locally. Hence, other
-ruby libraries can be loaded and required as usual, assuming their names do
-not conflict with local file names. Definitions from those files go into
-the usual scope (typically global). The normal ruby <tt>load</tt> and
-<tt>require</tt> behavior can be forced by calling <tt>Kernel.load</tt> and
-<tt>Kernel.require</tt>.</p>
+back to the <a href="Kernel.html">Kernel</a> versions if the file is not
+found locally. Hence, other ruby libraries can be loaded and required as
+usual, assuming their names do not conflict with local file names.
+Definitions from those files go into the usual scope (typically global).
+The normal ruby <tt>load</tt> and <tt>require</tt> behavior can be forced
+by calling <tt>Kernel.load</tt> and <tt>Kernel.require</tt>.</p>
 
 <p>A <a href="Capsule.html">Capsule</a> immitates the way the top-level ruby
 context works, so a ruby file that was originally intended to be run from
@@ -365,13 +355,13 @@ sudo setup.rb all</pre>
 
 <p>Copyright © 2007 Thomas Sawyer</p>
 
+<p>Unless otherwise agreed upon by the copyright holder, this program is
+ditributed under the terms of the GNU Affero General Public License v3.</p>
+
 <p><a href="Capsule.html">Capsule</a> is based on Joel VanderWerf’s Script
 library.</p>
 
 <p>Copyright © 2004 Joel VanderWerf</p>
-
-<p>Unless otherwise agreed upon by the copyright holder, this program is
-ditributed under the terms of the GNU Affero General Public License v3.</p>
 
 <p>See <a href="COPYING_rdoc.html">COPYING.rdoc</a> file for details.</p>
 
