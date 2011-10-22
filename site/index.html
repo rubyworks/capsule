@@ -7,23 +7,27 @@
   <script>
     //google.load("jquery", "1.5.2");
     $(document).ready(function(){
-      $("#readme").load("readme.html");
+      //$("#readme").load("readme.html");
     });
   </script>
   <style>
-    body { font-family: monospace; margin: 0; padding: 0; background: url(assets/bg.jpg) top center repeat-x #000;}
+    body { font-family: sans-serif; margin: 0; padding: 0; background: url(assets/bg.jpg) top center repeat-x #000;}
     li p { margin: 2px; }
-    h1 { font-size: 4em; height: 50px; padding: 0; }
-    h2 { margin-top: 30px; }
-    pre { padding: 20px; background: #ded; font-size: 0.9em; font-family: courier; font-weight: bold; }
+    h1 { font-size: 5em; height: 50px; padding: 0; margin-left: -10px; }
+    h2 { margin: 30px 10px 20px 0px; font-family: courier, monospace; font-size: 2em; }
     a { text-decoration: none; color: green; }
     a:hover { text-decoration: underline; }
+    p { color: #333; line-height: 1.6em; padding: 1em 0; text-align: justify; font-weight: bold; }
+    pre { padding: 20px; font-size: 0.9em; font-weight: bold; border: 1px solid #bbb; }
+    pre { line-height: 1.5em; font-family: courier; font-size: 0.8em; padding-bottom: 0; opacity: 0.8; }
 
-    #nav { font-size: 1.2em; text-align: center; background: #222; padding: 10px; color: #FFF; font-weight: bold; }
+    #nav { font-size: 1.2em; text-align: center; background: #222; padding: 10px; color: #FFF;
+           font-weight: bold; font-family: monospace; border-bottom: 1px solid #ccc;
+           border-bottom-right-radius: 10px; border-bottom-left-radius: 10px; }
     #nav a { color: #5F5; font-weight: bold; }
     #main { margin: 0 auto; max-width: 780px; }
-    #readme { opacity: 0.9; background: #fff; padding: 0.5em 2em 3em 2em; }
-    #footer { margin-top: 0; padding: 40px 0; text-align: center; background: #222; border-top: 1px solid #999; }
+    #readme { background: transparent; padding: 0.5em 0.5em 3em 0.5em; }
+    #footer { margin-top: 0; padding: 40px 0; text-align: center; background: none; border-top: 1px solid #999; }
 
     #rubyworks{ position: fixed; bottom: 10px; right: 10px; padding: 0; opacity: 0.3; }
   </style>
@@ -33,7 +37,7 @@
 <div id="main">
   <div id="nav">
     <a href="" style="color: white;">Capsule</a> &nbsp; &middot; &nbsp;
-    <a href="http://rubyworks.github.com/rebecca?doc=http://rubyworks.github.com/capsule/docs/capsule-1.1.1.json">API</a> /
+    <a href="http://rubyworks.github.com/rebecca?doc=http://rubyworks.github.com/capsule/docs/capsule-1.1.1.json">DOC</a> /
     <a href="http://rubydoc.info/gems/capsule/frames">YARD</a> &nbsp;
     <a href="spec.html">QED</a> &nbsp;
     <a href="http://rubygems.org/gems/capsule">Gem</a> &nbsp;
@@ -41,6 +45,39 @@
   </div>
 
   <div id="readme">
+    <h1>CAPSULE</h1>
+
+    <h2>Encapsulated Scripts for Ruby</h2>
+
+    <p>Capsule is a subclass of Module. A module which is an instance of the Capsule
+    class encapsulates in its scope the top-level methods, top-level constants, and
+    instance variables defined in a Ruby script (and its dependent files)
+    loaded by a Ruby program. This allows use of script files to define objects that
+    can be loaded into a program in much the same way that objects can be loaded
+    from YAML or Marshaled files. There is also an autoimport method which functions
+    like Ruby's autoload but based on Capsule.load.</p>
+
+    <pre>
+      # myscript.rb
+      VALUE = [1,2,3]
+      def run
+        puts "#{self} is running."
+      end
+    </pre>
+
+    <pre>
+      # program.rb
+      require 'capsule'
+      myscript = Capsule.load("myscript.rb")
+      p myscript::VALUE
+      myscript.run
+    </pre>
+
+    <pre>
+      $ ruby program.rb
+      [1, 2, 3]
+      #&lt;Capsule:myscript.rb&gt; is running.   
+    </pre>
   </div>
 
   <div id="footer">
