@@ -1,5 +1,18 @@
 = RELEASE HISTORY
 
+== 1.1.1 / 2011-10-22
+
+Capsule is now released under the BSD-2-Clause license. Other than that,
+this release is just an administrative update, bringing the project
+uptodate with the latest build tools. The functionality of the library
+itself has not changed.
+
+Changes:
+
+* Switch to BSD-2-Clause license.
+* Modernize project for latest build tools.
+
+
 == 1.1.0 / 2011-05-12
 
 This release makes two small enhancements to the Capsule class.
