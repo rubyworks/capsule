@@ -1,0 +1,45 @@
+---
+gem:
+  active: true
+
+yard:
+  priority: 2
+  active: false
+
+qedoc:
+  title: Capsule
+  files: spec/*.rdoc
+  output: 
+    - SPEC.rdoc
+    - site/spec.html
+
+syntax:
+  files: lib/
+
+dnote:
+  labels: ~
+  output: log/NOTES.rdoc
+
+vclog:
+  output:
+    - log/Changes.rdoc
+    - log/History.rdoc
+
+locat:
+  title    : ~
+  loadpath : ~
+  exclude  : ~
+  output   : ~
+  active   : false
+
+email:
+  mailto: 
+    - ruby-talk@ruby-lang.org
+    - rubyworks-mailinglist@googlegroups.com
+
+custom:
+  document: |
+    cmd = "shomen yard > site/docs/<%= name %>-<%= version %>.json"
+    puts cmd
+    sh cmd
+

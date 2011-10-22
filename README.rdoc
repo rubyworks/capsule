@@ -141,12 +141,12 @@ Windows users use 'ruby setup.rb all'.
 
 == Legal
 
-(AGPL 3 License)
+(FreeBSD License)
 
 Copyright (c) 2007 Thomas Sawyer
 
 Unless otherwise agreed upon by the copyright holder, this program is
-ditributed under the terms of the GNU Affero General Public License v3.
+ditributed under the terms of the BSD-2-Clause license.
 
 Capsule is based on Joel VanderWerf's Script library.
 

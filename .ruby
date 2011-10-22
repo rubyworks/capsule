@@ -1,35 +1,47 @@
---- 
-name: capsule
-version: 1.1.0
-title: Capsule
-summary: Encapsulate Scripts in Modules
-description: Capsule is subclass of Module. It encapsulates an extenal script as a functions module.
-loadpath: 
-- lib
-manifest: MANIFEST
-requires: []
-
+---
+source:
+- Profile
+authors:
+- name: Thomas Sawyer
+  email: transfire@gmail.com
+- name: Joel VanderWerf
+copyrights:
+- holder: Thomas Sawyer
+  year: '2007'
+  license: BSD-2
+- holder: Joel VanderWerf
+  year: '2004'
+  license: Ruby
+replacements: []
+alternatives: []
+requirements:
+- name: detroit
+  groups:
+  - build
+  development: true
+- name: qed
+  groups:
+  - test
+  development: true
+dependencies: []
 conflicts: []
-
-replaces: []
-
-engine_check: []
-
-organization: Rubyworks
-contact: trans <transfire@gmail.com>
-created: 2005-01-01
-copyright: Copyright (c) 2007 Thomas Sawyer Copyright (c) 2004 Joel VanderWerf
-licenses: 
-- AGPL v3
-authors: 
-- Joel VanderWerf
-- Thomas Sawyer
-maintainers: []
-
-resources: 
+repositories:
+- uri: git://github.com/rubyworks/capsule.git
+  scm: git
+  name: upstream
+resources:
   home: http://rubyworks.github.com/capsule
-  work: http://github.com/rubyworks/capsule
-  mail: http://groups.google.com/group/rubyworks-mailinglist
-repositories: 
-  public: git://github.com/rubyworks/capsule.git
-spec_version: 1.0.0
+  code: http://github.com/rubyworks/capsule
+extra: {}
+load_path:
+- lib
+revision: 0
+name: capsule
+title: Capsule
+version: 1.1.1
+summary: Encapsulate Scripts in Modules
+created: '2005-01-01'
+description: Capsule is subclass of Module. It encapsulates an extenal script as a
+  functions module.
+organization: Rubyworks
+date: '2011-10-22'

@@ -1,6 +1,10 @@
+.reap/digest
+.yardoc
+doc
 log
 pkg
-ri
-tmp
 site/docs
 site/readme.html
+site/spec.html
+tmp
+SPEC.rdoc
