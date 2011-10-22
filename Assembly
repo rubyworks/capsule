@@ -2,6 +2,9 @@
 gem:
   active: true
 
+github:
+  active: true
+
 yard:
   priority: 2
   active: false
