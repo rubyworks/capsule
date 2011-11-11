@@ -3,9 +3,7 @@
 .yardopts
 lib/capsule/autoimport.rb
 lib/capsule.rb
-spec/01_example.rdoc
-spec/applique/env.rb
 HISTORY.rdoc
-SPEC.rdoc
 README.rdoc
+QED.rdoc
 COPYING.rdoc

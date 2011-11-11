@@ -1,6 +1,6 @@
 ---
 source:
-- Profile
+- var
 authors:
 - name: Thomas Sawyer
   email: transfire@gmail.com
@@ -32,16 +32,20 @@ repositories:
 resources:
   home: http://rubyworks.github.com/capsule
   code: http://github.com/rubyworks/capsule
+  docs: http://rubydoc.info/gems/capsule
+  bugs: http://github.com/rubyworks/capsule/issues
+  mail: http://groups.google.com/group/rubyworks-mailinglist
+  chat: irc://irc.freenode.net/rubyworks
 extra: {}
 load_path:
 - lib
 revision: 0
-name: capsule
+created: '2005-01-01'
+summary: Encapsulate Scripts in Modules
 title: Capsule
 version: 1.1.1
-summary: Encapsulate Scripts in Modules
-created: '2005-01-01'
+name: capsule
 description: Capsule is subclass of Module. It encapsulates an extenal script as a
   functions module.
 organization: Rubyworks
-date: '2011-10-22'
+date: '2011-11-11'
