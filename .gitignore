@@ -3,8 +3,5 @@
 doc
 log
 pkg
-site/docs
-site/readme.html
-site/spec.html
 tmp
-SPEC.rdoc
+web

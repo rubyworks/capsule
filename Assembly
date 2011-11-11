@@ -3,23 +3,27 @@ gem:
   active: true
 
 github:
-  active: true
+  gh_pages: web
 
 yard:
   priority: 2
   active: false
 
+qed:
+  files: qed/*.rdoc
+
 qedoc:
   title: Capsule
-  files: spec/*.rdoc
+  files: qed/*.rdoc
   output: 
-    - SPEC.rdoc
-    - site/spec.html
+    - QED.rdoc
+    - site/qed.html
 
 syntax:
   files: lib/
 
 dnote:
+  title: Developer's Notes
   labels: ~
   output: log/NOTES.rdoc
 
@@ -29,11 +33,8 @@ vclog:
     - log/History.rdoc
 
 locat:
-  title    : ~
-  loadpath : ~
-  exclude  : ~
-  output   : ~
-  active   : false
+  output: log/locat.thml
+  active: false
 
 email:
   mailto: 
@@ -42,7 +43,6 @@ email:
 
 custom:
   document: |
-    cmd = "shomen yard > site/docs/<%= name %>-<%= version %>.json"
-    puts cmd
-    sh cmd
+    cmd = "shomen yard > web/docs/<%= name %>-<%= version %>.json"
+    puts cmd; sh cmd
 
