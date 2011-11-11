@@ -1,5 +1,14 @@
 = Capsule
 
+{Homepage}[home: http://rubyworks.github.com/capsule] |
+{Documentation}[http://rubydoc.info/gems/capsule] |
+{Development]{http://github.com/rubyworks/capsule} |
+{Report Issue}[http://github.com/rubyworks/capsule/issues] |
+{Mailing List}[http://groups.google.com/group/rubyworks-mailinglist] |
+{IRC Channel}[irc://irc.freenode.net/rubyworks]
+
+{<img src="http://travis-ci.org/rubyworks/capsule.png" />}[http://travis-ci.org/rubyworks/capsule]
+
 
 == Description
 
@@ -10,13 +19,6 @@ loaded by a Ruby program. This allows use of script files to define objects that
 can be loaded into a program in much the same way that objects can be loaded
 from YAML or Marshaled files. There is also an autoimport method which functions
 like Ruby's autoload but based on is Capsule.load.
-
-
-== Resources
-
-* home: http://rubyworks.github.com/capsule
-* work: http://github.com/rubyworks/capsule
-* mail: http://groups.google.com/group/rubyworks-mailinglist
 
 
 == Synopsis
