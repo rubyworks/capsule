@@ -3,20 +3,20 @@ gem:
   active: true
 
 github:
-  gh_pages: web
+  folder: web
 
 yard:
   priority: 2
   active: false
 
 qed:
-  files: qed/*.rdoc
+  files: demo/*.rdoc
 
 qedoc:
   title: Capsule
-  files: qed/*.rdoc
+  files: demo/*.rdoc
   output: 
-    - QED.rdoc
+    - DEMO.rdoc
     - site/qed.html
 
 syntax:
@@ -25,15 +25,15 @@ syntax:
 dnote:
   title: Developer's Notes
   labels: ~
-  output: log/NOTES.rdoc
+  output: log/notes.html
 
 vclog:
   output:
-    - log/Changes.rdoc
-    - log/History.rdoc
+    - log/changes.html
+    - log/history.html
 
 locat:
-  output: log/locat.thml
+  output: log/locat.html
   active: false
 
 email:
